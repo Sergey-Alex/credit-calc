@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect'; // для дополнительных матчеров
 import { PaymentTable } from '../PaymentTable/PaymentTable';
 
 describe('PaymentTable', () => {
@@ -11,7 +10,6 @@ describe('PaymentTable', () => {
     test('рендерит заголовки таблицы', () => {
         render(<PaymentTable payments={[]} />);
 
-        // Проверяем, что заголовки отображаются
         expect(screen.getByText(/Дата/i)).toBeInTheDocument();
         expect(screen.getByText(/Сумма платежа/i)).toBeInTheDocument();
         expect(screen.getByText(/Основной долг/i)).toBeInTheDocument();
@@ -21,9 +19,7 @@ describe('PaymentTable', () => {
 
     test('отображает сообщение, если нет платежей', () => {
         render(<PaymentTable payments={[]} />);
-
-        // Проверяем, что таблица рендерится, но нет строк с платежами
         const rows = screen.getAllByRole('row');
-        expect(rows.length).toBe(1); // Должна быть только строка заголовка
+        expect(rows.length).toBe(1);
     });
 });

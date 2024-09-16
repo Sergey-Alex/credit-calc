@@ -1,6 +1,5 @@
-import { isHolidayOrSunday, getNextWorkingDay, calculatePayments } from '../utils/calculatePayments'; // Импортируем ваш модуль
+import { isHolidayOrSunday, getNextWorkingDay, calculatePayments } from '../utils/calculatePayments';
 
-// Моковые данные для праздников
 const holidays = ['2024-01-01', '2024-01-07'];
 
 describe('isHolidayOrSunday', () => {
@@ -35,16 +34,16 @@ describe('getNextWorkingDay', () => {
 });
     test('рассчитать правильные даты оплаты, избегая праздников и воскресений', () => {
         const amount = 10000;
-        const term = 12; // 12 месяцев
-        const rate = 12; // 12% годовых
-        const startDate = 1; // начало 1-го числа
+        const term = 12; //
+        const rate = 12; //
+        const startDate = 1; //
         const loanType = 'annuity';
 
         const payments = calculatePayments(amount, term, rate, startDate, loanType);
 
         payments.forEach((payment) => {
             const paymentDate = new Date(payment.date.split('.').reverse().join('-'));
-            expect(isHolidayOrSunday(paymentDate)).toBe(false); // Дата платежа не должна быть в выходной или праздник
+            expect(isHolidayOrSunday(paymentDate)).toBe(false);
         });
     });
 
