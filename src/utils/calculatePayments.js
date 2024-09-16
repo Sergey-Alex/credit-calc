@@ -8,7 +8,6 @@ export const isHolidayOrSunday = (date) => {
 };
 
 export const getNextWorkingDay = (date) => {
-    const newDate = new Date(date);
     while (isHolidayOrSunday(date)) {
         date.setDate(date.getDate() + 1);
     }
