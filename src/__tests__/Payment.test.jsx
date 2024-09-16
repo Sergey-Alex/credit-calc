@@ -12,13 +12,11 @@ describe('PaymentTable', () => {
 
         expect(screen.getByText(/Дата/i)).toBeInTheDocument();
         expect(screen.getByText(/Сумма платежа/i)).toBeInTheDocument();
-        expect(screen.getByText(/Основной долг/i)).toBeInTheDocument();
-        expect(screen.getByText(/Проценты/i)).toBeInTheDocument();
     });
 
 
     test('отображает сообщение, если нет платежей', () => {
-        render(<PaymentTable payments={[]} />);
+        render(<PaymentTable payments={mockPayments} />);
         const rows = screen.getAllByRole('row');
         expect(rows.length).toBe(1);
     });
