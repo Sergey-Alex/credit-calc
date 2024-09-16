@@ -8,7 +8,7 @@ describe('PaymentTable', () => {
     ];
 
     test('рендерит заголовки таблицы', () => {
-        render(<PaymentTable payments={[]} />);
+        render(<PaymentTable payments={mockPayments} />);
 
         expect(screen.getByText(/Дата/i)).toBeInTheDocument();
         expect(screen.getByText(/Сумма платежа/i)).toBeInTheDocument();
